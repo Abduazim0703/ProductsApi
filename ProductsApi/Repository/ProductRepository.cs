@@ -12,9 +12,9 @@ namespace ProductsApi.Repository
     {
         private readonly IDataContext context;
 
-        public ProductRepository(IDataContext context)
+        public ProductRepository(IDataContext _context)
         {
-             this.context = context;
+             context = _context;
         }
 
         public async Task Add(Product product)
@@ -45,12 +45,12 @@ namespace ProductsApi.Repository
 
         public async Task Update(Product product)
         {
-            var itemToUpdate = await context.Products.FindAsync(product.ProductId);
+            var itemToUpdate = await context.Products.FindAsync(product.Id);
             if (itemToUpdate == null)
                 throw new NullReferenceException();
 
-            itemToUpdate.ProductName = product.ProductName;
-            itemToUpdate.ProductPrice = product.ProductPrice;
+            itemToUpdate.Name = product.Name;
+            itemToUpdate.Price = product.Price;
             await context.SaveChangesAsync();
         }
     }

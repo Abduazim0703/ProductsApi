@@ -7,9 +7,9 @@ namespace ProductsApi.Dtos
 {
     public class CreateProductDto
     {
-        public string ProductName { get; set; }
+        public string Name { get; set; }
 
-        public Decimal ProductPrice { get; set; }
+        public Decimal Price { get; set; }
 
     }
 }

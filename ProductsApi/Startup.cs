@@ -31,8 +31,8 @@ namespace ProductsApi
         {
 
             services.AddDbContext<DbContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IDataContext>(provider => provider.GetService<DataContext>());
-            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddScoped<IDataContext>(provider => provider.GetService<DataContext>());
+            services.AddScoped<IProductRepository, ProductRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

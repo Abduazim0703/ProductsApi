@@ -44,8 +44,8 @@ namespace ProductsApi.Controllers
         {
             Product product = new()
             {
-                ProductName = createProductDto.ProductName,
-                ProductPrice = createProductDto.ProductPrice
+                Name = createProductDto.Name,
+                Price = createProductDto.Price
             };
 
             await productRepository.Add(product);
@@ -65,8 +65,8 @@ namespace ProductsApi.Controllers
         {
             Product product = new()
             {
-                ProductName = updateProductDto.ProductName,
-                ProductPrice = updateProductDto.ProductPrice
+                Name = updateProductDto.Name,
+                Price = updateProductDto.Price
             };
 
             await productRepository.Update(product);
